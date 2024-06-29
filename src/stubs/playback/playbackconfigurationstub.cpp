@@ -29,7 +29,16 @@ bool PlaybackConfigurationStub::playNotesWhenEditing() const
     return false;
 }
 
+bool PlaybackConfigurationStub::midiInputEcho() const
+{
+    return false;
+}
+
 void PlaybackConfigurationStub::setPlayNotesWhenEditing(bool)
+{
+}
+
+bool PlaybackConfigurationStub::setMidiInputEcho() const
 {
 }
 

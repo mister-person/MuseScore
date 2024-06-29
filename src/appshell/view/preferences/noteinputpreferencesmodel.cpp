@@ -56,6 +56,11 @@ bool NoteInputPreferencesModel::playNotesWhenEditing() const
     return playbackConfiguration()->playNotesWhenEditing();
 }
 
+bool NoteInputPreferencesModel::midiInputEcho() const
+{
+    return playbackConfiguration()->midiInputEcho();
+}
+
 int NoteInputPreferencesModel::notePlayDurationMilliseconds() const
 {
     return notationConfiguration()->notePlayDurationMilliseconds();
@@ -124,6 +129,16 @@ void NoteInputPreferencesModel::setPlayNotesWhenEditing(bool value)
 
     playbackConfiguration()->setPlayNotesWhenEditing(value);
     emit playNotesWhenEditingChanged(value);
+}
+
+void NoteInputPreferencesModel::setMidiInputEcho(bool value)
+{
+    if (value == midiInputEcho()) {
+        return;
+    }
+
+    playbackConfiguration()->setMidiInputEcho(value);
+    emit midiInputEchoChanged(value);
 }
 
 void NoteInputPreferencesModel::setNotePlayDurationMilliseconds(int duration)

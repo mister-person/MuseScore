@@ -139,7 +139,9 @@ void NotationMidiInput::doProcessEvents()
             notesItems.push_back(note);
         }
 
-        playbackController()->playElements(notesItems);
+        if (playbackConfiguration()->midiInputEcho() || isNoteInputMode()) {
+            playbackController()->playElements(notesItems);
+        }
         m_notesReceivedChannel.send(notes);
     }
 

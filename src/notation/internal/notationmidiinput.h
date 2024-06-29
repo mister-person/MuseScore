@@ -27,6 +27,7 @@
 #include "modularity/ioc.h"
 #include "playback/iplaybackcontroller.h"
 #include "inotationconfiguration.h"
+#include "playback/iplaybackconfiguration.h"
 #include "actions/iactionsdispatcher.h"
 
 #include "../inotationmidiinput.h"
@@ -44,6 +45,7 @@ class NotationMidiInput : public INotationMidiInput
     INJECT(playback::IPlaybackController, playbackController)
     INJECT(muse::actions::IActionsDispatcher, dispatcher)
     INJECT(INotationConfiguration, configuration)
+    INJECT(playback::IPlaybackConfiguration, playbackConfiguration)
 
 public:
     NotationMidiInput(IGetScore* getScore, INotationInteractionPtr notationInteraction, INotationUndoStackPtr undoStack);

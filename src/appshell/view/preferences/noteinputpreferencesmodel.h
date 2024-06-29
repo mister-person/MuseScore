@@ -50,6 +50,7 @@ class NoteInputPreferencesModel : public QObject
         int delayBetweenNotesInRealTimeModeMilliseconds READ delayBetweenNotesInRealTimeModeMilliseconds WRITE setDelayBetweenNotesInRealTimeModeMilliseconds NOTIFY delayBetweenNotesInRealTimeModeMillisecondsChanged)
 
     Q_PROPERTY(bool playNotesWhenEditing READ playNotesWhenEditing WRITE setPlayNotesWhenEditing NOTIFY playNotesWhenEditingChanged)
+    Q_PROPERTY(bool midiInputEcho READ midiInputEcho WRITE setMidiInputEcho NOTIFY midiInputEchoChanged)
     Q_PROPERTY(
         int notePlayDurationMilliseconds READ notePlayDurationMilliseconds WRITE setNotePlayDurationMilliseconds NOTIFY notePlayDurationMillisecondsChanged)
     Q_PROPERTY(bool playChordWhenEditing READ playChordWhenEditing WRITE setPlayChordWhenEditing NOTIFY playChordWhenEditingChanged)
@@ -67,6 +68,7 @@ public:
     int delayBetweenNotesInRealTimeModeMilliseconds() const;
 
     bool playNotesWhenEditing() const;
+    bool midiInputEcho() const;
     int notePlayDurationMilliseconds() const;
     bool playChordWhenEditing() const;
     bool playChordSymbolWhenEditing() const;
@@ -79,6 +81,7 @@ public slots:
     void setWarnGuitarBends(bool value);
     void setDelayBetweenNotesInRealTimeModeMilliseconds(int delay);
     void setPlayNotesWhenEditing(bool value);
+    void setMidiInputEcho(bool value);
     void setNotePlayDurationMilliseconds(int duration);
     void setPlayChordWhenEditing(bool value);
     void setPlayChordSymbolWhenEditing(bool value);
@@ -90,6 +93,7 @@ signals:
     void warnGuitarBendsChanged(bool value);
     void delayBetweenNotesInRealTimeModeMillisecondsChanged(int delay);
     void playNotesWhenEditingChanged(bool value);
+    void midiInputEchoChanged(bool value);
     void notePlayDurationMillisecondsChanged(int duration);
     void playChordWhenEditingChanged(bool value);
     void playChordSymbolWhenEditingChanged(bool value);

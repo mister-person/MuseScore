@@ -41,6 +41,9 @@ public:
     bool playNotesWhenEditing() const override;
     void setPlayNotesWhenEditing(bool value) override;
 
+    bool midiInputEcho() const override;
+    void setMidiInputEcho(bool value) override;
+
     bool playChordWhenEditing() const override;
     void setPlayChordWhenEditing(bool value) override;
 

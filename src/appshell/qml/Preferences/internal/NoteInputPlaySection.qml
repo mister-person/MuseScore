@@ -30,12 +30,14 @@ BaseSection {
     property alias playNotesWhenEditing: playNotesBox.checked
     property alias playChordWhenEditing: playChordBox.checked
     property alias playChordSymbolWhenEditing: playChordSymbolBox.checked
+    property alias midiInputEcho: midiInputEchoBox.checked
     property alias notePlayDurationMilliseconds: notePlayDurationControl.currentValue
 
     signal playNotesWhenEditingChangeRequested(bool play)
     signal playChordWhenEditingChangeRequested(bool play)
     signal playChordSymbolWhenEditingChangeRequested(bool play)
     signal notePlayDurationChangeRequested(int duration)
+    signal midiInputEchoChangeRequested(bool play)
 
     CheckBox {
         id: playNotesBox
@@ -106,6 +108,23 @@ BaseSection {
 
         onClicked: {
             root.playChordSymbolWhenEditingChangeRequested(!checked)
+        }
+    }
+
+    CheckBox {
+        id: midiInputEchoBox
+        width: parent.width
+
+        text: qsTrc("appshell/preferences", "Play midi input when not editing")
+
+        enabled: root.playNotesWhenEditing
+
+        navigation.name: "midiInputEchoBox"
+        navigation.panel: root.navigation
+        navigation.row: 4
+
+        onClicked: {
+            root.midiInputEchoChangeRequested(!checked)
         }
     }
 }
